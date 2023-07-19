@@ -13,7 +13,13 @@ def pass_encoder(password):
 
 
 def pass_decoder(encoded_pass):
-    pass
+    decoded_password = ""
+    pass_through = list(encoded_pass)
+    for char in pass_through:
+        new_pass_digit = int(char) - 3
+        new_pass_digit = str(new_pass_digit)
+        decoded_password += new_pass_digit
+    return decoded_password
 
 
 if __name__ == "__main__":
@@ -30,6 +36,5 @@ if __name__ == "__main__":
         # decode option
         elif option == 2:
             print(f"The encoded password is {encoded_pass_entry}, and the original password is {pass_decoder(encoded_pass_entry)}")
-            pass
         elif option == 3:
             program_continues = False
